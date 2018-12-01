@@ -126,7 +126,7 @@ ANIDB_RX = [  ###### AniDB Specials episode offset regex array
         r"(^|(?P<show>.*?)[ _\.\-]+)(O|OTHERS?)(?P<ep>\d{1,2})[ _\.]?(V\d)?[ _\.\-]+(?P<title>.*)$"
     ),  #  4 # 400-499 Others
     cic(
-        r"(^|(?P<show>.*?)[ _\.\-]+)(EP?[ _\.\-]?)?(?P<ep>\d{1,3})((-|-?EP?)(?P<ep2>\d{1,3})|)?[ _\.]?(V\d)?([ _\.\-]+(?P<title>.*))?$"
+        r"(^|(?P<show>.*?)[ _\.\-]*)\[?第?(E?P?[ _\.\-]?)?(?P<ep>\d{1,3})((-|-?EP?)(?P<ep2>\d{1,3})|)?[ _\.]?(V\d)?\]?([ _\.\-]+(?P<title>.*))?$"
     ),  #  5 # E01 | E01-02| E01-E02 | E01E02                                                                                                                       # __ # look behind: (?<=S) < position < look forward: (?!S)
     cic(r"(^|(?P<show>.*?)[ _\.\-]+)SP?[ _\.]?(?P<ep>\d{1,2})[ _\.]?(?P<title>.*)$"),
 ]  #  6 # 001-099 Specials #'S' moved to the end to make sure season strings are not caught in prev regex
@@ -439,6 +439,9 @@ WHACK_PRE_CLEAN_RAW = [
     "(TV)",
     "[DragonMax]",
     "[VCB-Studio]",
+    "[Snow-Raws]",
+    "[Fussoir]",
+    "[T.H.X&VCB-Studio]",
     "INTEGRALE",
     "MKV",
     "MULTI",
