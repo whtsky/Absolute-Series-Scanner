@@ -1573,28 +1573,6 @@ def Scan(
                 )
             )
 
-            ### ZIP ###
-            if ext == "zip":
-                Log.info(file)
-                zip_archive = zipfile.ZipFile(file)
-                for zip_archive_filename in zip_archive.namelist():
-                    zext = os.path.splitext(zip_archive_filename)[1][
-                        1:
-                    ]  # zname, zext = ...  #zext = zext[1:]
-                    if zext in VIDEO_EXTS:
-                        files.append(
-                            zip_archive_filename
-                        )  # filecontents = zip_archive.read(zip_archive_filename)
-                        Log.info("- " + zip_archive_filename)
-
-            ### 7zip ###
-            ### RAR ###
-            # import rarfile  https://rarfile.readthedocs.io/en/latest/api.html
-            # rar_archive = rarfile.RarFile('myarchive.rar')
-            # for rar_archive_filename in rar_archive.infolist():
-            #  zname, zext = os.path.splitext(rar_archive_filename.filename); zext = zext[1:]
-            #  if zext in VIDEO_EXTS:  files.append(rar_archive_filename.filenamee)  #filecontents = rar_archive.read(rar_archive_filename)
-
     if not files:
         Log.info("[no files detected]")
         if path:
